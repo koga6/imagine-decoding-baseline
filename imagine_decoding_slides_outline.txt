@@ -1,0 +1,194 @@
+Imagine Decoding – Slide Outline (Bilingual)
+想象解码汇报大纲（中英双语）
+
+==================================================
+Slide 1 — Title / 标题页
+==================================================
+EN:
+- Imagine Decoding with MEG Signals
+- Course, Team Members, Date
+
+CN:
+- 基于 MEG 信号的想象词语解码
+- 课程、组员、日期
+
+Notes / 讲解:
+- Introduce project and background
+- 简要介绍项目背景
+
+==================================================
+Slide 2 — Problem Definition / 问题定义
+==================================================
+EN:
+- Input: MEG signals
+- Output: 10 classes
+
+CN:
+- 输入：MEG 脑信号
+- 输出：10类词语
+
+Notes:
+- Task: decode imagined words from brain signals
+- 任务：从脑信号中解码“想象的词语”
+
+==================================================
+Slide 3 — Challenges / 难点
+==================================================
+EN:
+- Weak signal (imagine)
+- Noise
+- Domain shift
+
+CN:
+- 想象信号弱
+- 噪声大
+- 分布迁移问题
+
+Notes:
+- Localizer ≠ Imagine (key challenge)
+- localizer 与 imagine 分布不同
+
+==================================================
+Slide 4 — Dataset / 数据集
+==================================================
+EN:
+- Train subjects / Test subjects
+- Localizer vs Imagine
+
+CN:
+- 训练受试者 / 测试受试者
+- localizer 与 imagine 数据
+
+Notes:
+- Each subject has both types
+- 每个受试者都有两类数据
+
+==================================================
+Slide 5 — Core Idea / 核心思路
+==================================================
+EN:
+- Train on localizer
+- Predict on imagine
+
+CN:
+- 用 localizer 训练
+- 在 imagine 上预测
+
+Notes:
+- Learn from strong signal, apply to weak signal
+- 用强信号学习，用弱信号推断
+
+==================================================
+Slide 6 — Pipeline / 流程
+==================================================
+EN:
+MEG → crop → flatten → scaler → (PCA) → classifier
+
+CN:
+MEG → 裁剪 → 展平 → 标准化 → (PCA) → 分类
+
+Notes:
+- Explain each step briefly
+- 简要解释每一步
+
+==================================================
+Slide 7 — Feature Engineering / 特征设计
+==================================================
+EN:
+- Flatten channels × time
+- Each trial = one vector
+
+CN:
+- 通道 × 时间 展平
+- 每个 trial = 一个向量
+
+Notes:
+- Simple but loses temporal info
+- 简单但丢失时间结构
+
+==================================================
+Slide 8 — Time Window / 时间窗（重点）
+==================================================
+EN:
+- Train: 0.08–0.40
+- Test: 0.50–0.82
+- Same duration
+
+CN:
+- 训练：0.08–0.40
+- 测试：0.50–0.82
+- 长度必须一致
+
+Notes:
+- Localizer earlier, imagine later
+- flatten requires same dimension
+
+==================================================
+Slide 9 — Model / 模型
+==================================================
+EN:
+- Logistic Regression
+- StandardScaler
+- PCA (optional)
+
+CN:
+- 逻辑回归
+- 标准化
+- PCA（可选）
+
+Notes:
+- Simple baseline first
+- 先用简单模型验证
+
+==================================================
+Slide 10 — Results / 结果
+==================================================
+EN:
+- submission.csv generated
+- Ready for leaderboard
+
+CN:
+- 已生成 submission.csv
+- 可以提交比赛
+
+Notes:
+- Pipeline works end-to-end
+- 流程已跑通
+
+==================================================
+Slide 11 — Limitations / 局限
+==================================================
+EN:
+- Flatten loses time info
+- Domain shift not handled
+- Simple model
+
+CN:
+- 丢失时间信息
+- 未处理分布迁移
+- 模型简单
+
+Notes:
+- Show awareness of problems
+- 展示对问题的理解
+
+==================================================
+Slide 12 — Future Work / 未来工作
+==================================================
+EN:
+- PCA tuning
+- Window search
+- Ensemble
+- Better features
+
+CN:
+- PCA 调参
+- 时间窗搜索
+- 多模型融合
+- 更强特征
+
+Notes:
+- Incremental improvement strategy
+- 逐步优化策略
+
+==================================================
