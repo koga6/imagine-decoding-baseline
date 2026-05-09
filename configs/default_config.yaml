@@ -1,0 +1,37 @@
+seed: 42
+
+paths:
+  data_dir: "../the-imagine-decoding-challenge"
+  train_dir: "../the-imagine-decoding-challenge/train"
+  test_dir: "../the-imagine-decoding-challenge/test"
+  output_dir: "outputs"
+  model_dir: "models"
+
+data:
+  pick_types: "meg"
+  train_tmin: 0.08
+  train_tmax: 0.40
+  test_tmin: 0.50
+  test_tmax: 0.82
+  resample_sfreq: null
+  clip_value: null
+
+model:
+  name: "logreg"
+  standardize: true
+  pca_n_components: null
+  C: 1.0
+  max_iter: 2000
+  class_weight: "balanced"
+  solver: "lbfgs"
+
+cv:
+  n_splits: 5
+  shuffle: true
+
+train:
+  save_model: true
+  save_oof_preds: true
+
+predict:
+  submission_name: "submission.csv"
